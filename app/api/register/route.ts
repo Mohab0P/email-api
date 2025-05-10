@@ -32,7 +32,14 @@ export async function POST(req: Request) {
           error: 'Missing required fields',
           message: 'Please fill in all required fields'
         },
-        { status: 400 }
+        { 
+          status: 400,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type'
+          }
+        }
       );
     }
 
@@ -90,6 +97,12 @@ export async function POST(req: Request) {
       message: type === 'beta' 
         ? 'Registration successful! 🎉 Please check your email (including spam folder) for confirmation. We will contact you soon with next steps.'
         : 'Message sent successfully! 🎉 We will get back to you soon.'
+    }, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      }
     });
   } catch (error) {
     console.error('Error sending email:', error);
@@ -99,8 +112,25 @@ export async function POST(req: Request) {
         error: 'Failed to send email',
         message: 'Unable to submit form. Please try again or contact support at tareeqiapp@gmail.com'
       },
-      { status: 500 }
+      { 
+        status: 500,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type'
+        }
+      }
     );
   }
-} 
-//#endregion
+}
+
+// Handle OPTIONS request for CORS preflight
+export async function OPTIONS() {
+  return NextResponse.json({}, {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type'
+    }
+  });
+}
