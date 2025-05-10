@@ -1,0 +1,24 @@
+{
+  "name": "email-api",
+  "version": "1.0.0",
+  "description": "Email API service for Tareeqi",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": ["email", "api", "tareeqi"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "nodemailer": "latest",
+    "typescript": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/nodemailer": "latest"
+  }
+}
