@@ -140,7 +140,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📞 Support
 
-For support, email tareeqiapp@gmail.com or open an issue in the repository.
+For support,open an issue in the repository.
 
 ---
 
